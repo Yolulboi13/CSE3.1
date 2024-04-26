@@ -1,0 +1,20 @@
+strategy_name = "Double paper, look back 2 and throw the move that would've won, unless they do scissors, then throw what'd lose"
+
+def move(my_history, their_history):
+    # first move is always paper
+    if len(their_history) == 0:
+        return "p"
+
+    # second move is always scissors
+    elif len(their_history) == 1:
+        return "p"
+
+    # look back 2 and play what'd win
+    else:
+        if their_history[-2] == "r":
+            return "p"
+        elif their_history[-2] == "p":
+            return "s"
+        # unless they do scissors. then play what'd lose
+        else:
+            return "p"
